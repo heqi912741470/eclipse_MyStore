@@ -1,6 +1,7 @@
 package com.heqi.controller;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -38,11 +39,12 @@ public class UserController extends HttpServlet {
 	public void query(HttpServletRequest res,HttpServletResponse resp) throws Exception{
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		res.setCharacterEncoding("utf-8");
 		Cookie cookieA = new Cookie("uid","3425435325432");
 		cookieA.setMaxAge(60*60*2);
 		
 		resp.addCookie(cookieA);
-		res.setCharacterEncoding("utf-8");
+		
 		String username = res.getParameter("username");
 		String password = res.getParameter("password");
 		String sex = res.getParameter("sex");
@@ -70,6 +72,30 @@ public class UserController extends HttpServlet {
 			//注册失败
 			res.getRequestDispatcher("registerFailed.jsp").forward(res, resp);
 		}
+	}
+	
+	public void login(HttpServletRequest res,HttpServletResponse resp) throws Exception{
+		SqlSession sqlSession = MyBatisUtil.getSqlSession();
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		res.setCharacterEncoding("utf-8");
+		String username = res.getParameter("username");
+		String password = res.getParameter("password");
+		String jizhu = res.getParameter("jizhu");
+		System.out.println(username);
+		System.out.println(password);
+		System.out.println(jizhu);
+		
+		List<User> bean = mapper.getByUP(username, password);
+		sqlSession.close();
+		if(!bean.isEmpty()){
+			//list不为空 证明账号密码正确
+			System.out.println(bean);
+		}else{
+			System.out.println("账号或密码不正确！");
+			res.getRequestDispatcher("login.jsp").forward(res, resp);
+		}
+		
+		
 	}
 	
 }

@@ -122,26 +122,33 @@
         		<div class="breadcrumb"><a href="index.html">首页</a> / 登录</div>
 
 		<div class="row">
+	
 			<div class="col-sm-6">
+				<form action="<%=request.getContextPath()%>/login.udo" method="post">
 				<h3>Sign In</h3>
 				<div class="form-group">
 				<label for="exampleInputEmail1">账号</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="账号">
+				<input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="账号">
 				</div>
 				<div class="form-group">
 				<label for="exampleInputPassword1">密码</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+				<input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="密码">
 				</div>
 				<div class="checkbox">
 				<label>
-				<input type="checkbox"> 记住密码
+				<input type="radio" name="jizhu" value="1"> 记住密码
 				</label>
 				</div>
 				<div class="forgot-password"><a href="#">忘记了密码</a></div>
 				<button type="submit" class="btn btn-primary">登录</button>
-				<button type="submit" class="btn btn-primary">注册</button>
+				<a href="register.jsp" class="btn btn-primary pull-left">注册</a>
+				</form>
+				
+				
+				
 			</div>
-			
+		
+
 		</div>				
 	
 		<hr>

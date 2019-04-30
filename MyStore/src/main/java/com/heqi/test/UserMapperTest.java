@@ -11,6 +11,18 @@ import com.heqi.utils.MyBatisUtil;
 
 public class UserMapperTest {
 	@Test
+	public void getByUP(){
+		SqlSession sqlSession = MyBatisUtil.getSqlSession();
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		
+		List<User> bean = mapper.getByUP("уе╧Ч","000000");
+		sqlSession.close();
+		for (int i = 0; i < bean.size(); i++) {
+			System.out.println(bean.get(i).getId());
+		}
+		
+	}
+	@Test
 	public void Select() {
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
