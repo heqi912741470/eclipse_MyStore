@@ -1,8 +1,9 @@
 package com.heqi.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.heqi.dao.User;
 import com.heqi.dao.UserMapper;
 import com.heqi.utils.MyBatisUtil;
-
+@WebServlet(urlPatterns = {"*.udo"})
 public class UserController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -37,7 +38,10 @@ public class UserController extends HttpServlet {
 	public void query(HttpServletRequest res,HttpServletResponse resp) throws Exception{
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		Cookie cookieA = new Cookie("uid","3425435325432");
+		cookieA.setMaxAge(60*60*2);
 		
+		resp.addCookie(cookieA);
 		res.setCharacterEncoding("utf-8");
 		String username = res.getParameter("username");
 		String password = res.getParameter("password");
@@ -60,8 +64,8 @@ public class UserController extends HttpServlet {
 		sqlSession.close();
 		if(result==1){
 			//注册成功
-			resp.sendRedirect("/MyStore/index.jsp");//重定向到首页
-			//res.getRequestDispatcher("registerSucceed.jsp").forward(res, resp);
+			//resp.sendRedirect("/MyStore/index.jsp");//重定向到首页
+			res.getRequestDispatcher("login.jsp").forward(res, resp);
 		}else{
 			//注册失败
 			res.getRequestDispatcher("registerFailed.jsp").forward(res, resp);

@@ -117,36 +117,34 @@
 <div class="container">
 
 <!-- checkout -->
-<div class="content inside-page register">
-        <h2 class="title">注册</h2>
-		<div class="breadcrumb"><a href="index.html">首页</a> / 注册</div>
+<div class="content inside-page login">
+        
+        		<div class="breadcrumb"><a href="index.html">首页</a> / 登录</div>
 
-        <fieldset>
-		
-		<div class="form-horizontal content-center">
-				
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Sign In</h3>
 				<div class="form-group">
-				<label for="inputEmail3" class="col-sm-4 control-label"></label>
-				<div class="col-sm-8">
-					<label class="radio-inline">
-					<h1>注册成功</h1>
-					</label>
+				<label for="exampleInputEmail1">账号</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="账号">
 				</div>
-				
+				<div class="form-group">
+				<label for="exampleInputPassword1">密码</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
 				</div>
-				<div class="col-sm-8 col-sm-offset-4">
-					<input type="submit" value="登陆" class="btn btn-primary pull-left">
-					
+				<div class="checkbox">
+				<label>
+				<input type="checkbox"> 记住密码
+				</label>
 				</div>
-
-		</div>
-
-
-		
-    	
-	</fieldset>
+				<div class="forgot-password"><a href="#">忘记了密码</a></div>
+				<button type="submit" class="btn btn-primary">登录</button>
+				<button type="submit" class="btn btn-primary">注册</button>
+			</div>
+			
+		</div>				
 	
-
+		<hr>
 		
 </div>
 
@@ -158,7 +156,7 @@
 
 </div>
 <footer>
-     <div class="container">
+   <div class="container">
             <div class="row">
                 <div class="col-sm-3 sitemap">
                     <h4>网站地图</h4>
@@ -185,7 +183,10 @@
                     <div class="input-group"><input type="text" class="form-control email" placeholder="您的电邮地址..."></div>
                     <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> 订阅</button>                   
                 </div>
-               
+                <div class="col-sm-3">
+                    <h4>喜欢并追随我们</h4>
+                    <span class="social"><a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-pinterest"></i></a></span>
+                </div>
 
                 
             </div>
