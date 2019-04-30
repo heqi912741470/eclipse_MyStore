@@ -2,6 +2,19 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <html lang="en">
 <head>
+<script type="text/javascript">
+	function validate(){
+		 var word1= document.getElementById("password").value;
+		 var word2 = document.getElementById("password1").value;
+		 if(word1 != word2){
+			 window.alert("两次密码不一致！");
+			 confirmNewPassword.focus();
+		     return false;
+		 }
+		 return true;
+	}
+	
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Shops | The Bootstrap Themes</title>
@@ -142,7 +155,7 @@
 				<div class="form-group">
 				<label for="inputEmail3" class="col-sm-4 control-label">名字</label>
 				<div class="col-sm-8">
-				<input type="text" class="form-control" name="username">
+				<input type="text" class="form-control" name="username" id="username">
 				</div>				
 				</div>
 
@@ -158,7 +171,7 @@
 				<div class="form-group">
 				<label for="inputEmail3" class="col-sm-4 control-label">电话</label>
 				<div class="col-sm-8">
-				<input type="text" class="form-control" name="phone">
+				<input type="text" class="form-control" name="phone" id="phone">
 				</div>				
 				</div>
 
@@ -172,14 +185,14 @@
 				<div class="form-group">
 				<label for="inputEmail3" class="col-sm-4 control-label">密码</label>
 				<div class="col-sm-8">
-				<input type="password" class="form-control" name="password">
+				<input type="password" class="form-control" name="password" id="password">
 				</div>				
 				</div>
 
 				<div class="form-group">
 				<label for="inputEmail3" class="col-sm-4 control-label">重新输入密码</label>
 				<div class="col-sm-8">
-				<input type="password" class="form-control" name="password1">
+				<input type="password" class="form-control" name="password1" id="password1">
 				</div>				
 				</div>
 
@@ -188,7 +201,7 @@
 
 
 				<div class="col-sm-8 col-sm-offset-4">
-					<input type="submit" value="注册" class="btn btn-primary pull-left">
+					<input type="submit" value="注册" class="btn btn-primary pull-left" onclick="return validate()">
 					
 				</div>
 			</form>

@@ -11,6 +11,17 @@ import com.heqi.utils.MyBatisUtil;
 
 public class UserMapperTest {
 	@Test
+	public void getByUName(){
+		SqlSession sqlSession = MyBatisUtil.getSqlSession();
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		List<User> bean = mapper.getByUNmae("小小酥");
+		if(!bean.isEmpty()){
+			System.out.println("用户名已存在！");
+			return ;
+		}
+		
+	}
+	@Test
 	public void getByUP(){
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);

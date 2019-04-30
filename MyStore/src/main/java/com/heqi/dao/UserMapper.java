@@ -9,6 +9,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 public interface UserMapper {
+	@Select("select * from users where userName=#{userName} ")
+	public List<User> getByUNmae(String userName);
+	//µÇÂ¼ÅÐ¶Ï
 	@Select("select * from users where userName=#{userName} and passWord=#{passWord}")
 	public List<User> getByUP(@Param("userName") String userName,@Param("passWord") String passWrod);
 	
